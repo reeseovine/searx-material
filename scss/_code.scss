@@ -1,0 +1,14 @@
+pre, code {
+    font-family: "Noto Mono", 'Ubuntu Mono', 'Courier New', 'Lucida Console', monospace !important;
+}
+
+@import "pygments";
+
+.code-highlight pre {
+    margin-bottom: 25px;
+    padding: 20px 10px;
+    background-color: inherit;
+    color: inherit;
+    border: inherit;
+    color: #D7DAE0;
+}

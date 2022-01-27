@@ -1,0 +1,181 @@
+body.search_endpoint .advanced {
+	margin-top: 0;
+	position: relative;
+	text-align: left;
+
+	// "Advanced settings" button
+	input#check-advanced {
+		display: none;
+	}
+	label[for='check-advanced'] {
+		cursor: pointer;
+		position: absolute;
+		top: -64px; left: 50%;
+		@include button('text', 'filter-variant', ' ');
+
+		// Mobile behavior
+		@media (max-width: 767px) {
+			color: transparent !important;
+			width: 50px !important;
+			transform: translateX(8px);
+		}
+		// Desktop behavior
+		@media (min-width: 768px) {
+			transform: translateX(-33px + 8px);
+			@include label-large;
+		}
+	}
+
+	@media (max-width: 767px) {
+		#check-advanced:checked + label {
+			&::before, &::after { display: none !important; }
+			display: block !important;
+			background-color: rgba($on-secondary-container, 38%) !important;
+			border-radius: 0 !important;
+
+			z-index: 999998;
+			position: fixed !important;
+			top: 0 !important; left: 0 !important;
+			bottom: 0 !important; right: 0 !important;
+			transform: none !important;
+			width: 100vw !important;
+			height: 100vh !important;
+		}
+	}
+
+	// Advanced settings container
+	#advanced-search-container {
+		display: block !important;
+		padding: 24px;
+		margin-bottom: 0;
+		border-radius: 28px !important;
+		background-color: $surface1;
+
+		// Mobile behavior
+		@media (max-width: 767px) {
+			z-index: 999999;
+			position: fixed;
+			bottom: 0; left: 0; right: 0;
+			transform: translateY(100%);
+			transition: transform ease 0.25s;
+
+			border-bottom-left-radius: 0 !important;
+			border-bottom-right-radius: 0 !important;
+
+			&::before {
+				content: 'Advanced settings';
+				display: inline-block;
+				margin-bottom: 20px;
+				@include headline6;
+			}
+		}
+		// Desktop behavior
+		@media (min-width: 768px) {
+			opacity: 0;
+			height: 0;
+			overflow: hidden;
+			transition: opacity ease 0.25s, height ease 0.25s;
+		}
+	}
+	#check-advanced:checked ~ #advanced-search-container {
+		// Mobile behavior
+		@media (max-width: 767px) {
+			transform: translateY(0%);
+		}
+		// Desktop behavior
+		@media (min-width: 768px) {
+			opacity: 1;
+			height: 210.5px;
+		}
+	}
+
+	// Category chips
+	#categories {
+		display: flex;
+		flex-flow: row wrap;
+		align-items: flex-start;
+		gap: 16px 8px;
+
+		label {
+			display: block;
+			flex-grow: 0;
+			background-color: $surface;
+			color: $on-surface-variant;
+			border: 1px solid $outline;
+			border-radius: 8px !important;
+			height: 32px;
+			padding: 0 16px;
+			margin: 0;
+			transition: all ease-in-out .1s;
+
+			@include label-large;
+			line-height: 32px;
+
+			text-transform: capitalize;
+			&[for='checkbox_it'] {
+				text-transform: uppercase;
+			}
+		}
+
+		input[type="checkbox"]:checked + label {
+			color: $on-secondary-container;
+			background-color: $secondary-container;
+			border-color: transparent;
+		}
+	}
+}
+
+// Combo box labels
+#advanced-search-container :not(#categories) {
+	label {
+		z-index: 20;
+		position: relative !important;
+		top: 17px; left: 12px;
+		@include label-small;
+		background-color: $surface1;
+		border: none;
+		padding: 4px;
+		margin: 0;
+		color: $outline;
+		transition: color ease-in-out .15s;
+
+		// counteract .visually-hidden styles
+		height: auto !important;
+		width: auto !important;
+		clip: none !important;
+	}
+	:focus-within label {
+		color: $primary;
+	}
+}
+
+// Combo boxes
+.custom-select, .custom-select-rtl {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+
+	height: 48px;
+	border-radius: 4px !important;
+	z-index: 10;
+	position: relative;
+
+	border: 1px solid $outline;
+	outline: none;
+	box-shadow: none !important;
+	background-color: $surface1;
+	color: $on-surface-variant;
+
+	@include body-medium;
+	text-overflow: ellipsis;
+
+	&:focus {
+		border-color: $primary;
+	}
+
+	&::after {
+		position: absolute;
+		top: 50%; right: 16px;
+		@include mdi('chevron-down', 18px, $outline);
+	}
+}

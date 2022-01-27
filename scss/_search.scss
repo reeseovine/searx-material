@@ -1,0 +1,82 @@
+#main-logo {
+	margin-top: 0;
+	margin-bottom: 32px;
+}
+
+#main-logo > img {
+	max-width: 350px;
+	width: 80%;
+}
+
+#q {
+	width: 100%;
+	height: 48px;
+	line-height: 48px;
+	font-size: 18px;
+	padding: 0 24px;
+	border: none;
+	outline: none;
+	border-radius: 24px !important;
+	box-shadow: none;
+	background-color: $surface2;
+	color: $on-surface;
+
+	&:focus {
+		@include elevation1;
+	}
+
+	&::placeholder {
+		color: rgba($on-surface, 50%);
+	}
+}
+
+button[type='reset'] {
+	background-color: none;
+	border: none;
+	@include mdi('close', 24px, $outline);
+}
+
+button[type='submit'] {
+	// Mobile behavior
+	@media (max-width: 767px) {
+		@include button('filled', 'magnify');
+	}
+	// Desktop behavior
+	@media (min-width: 768px) {
+		@include button('filled', 'magnify', 'Search');
+	}
+}
+
+body.search_endpoint #search_form .input-group {
+	display: block;
+	position: relative;
+	height: 112px;
+	margin-bottom: 24px;
+
+	.input-group-btn {
+		position: absolute;
+		top: 0; left: 0;
+		width: 100%;
+		height: 0;
+		z-index: 999;
+	}
+
+	button[type='reset'] {
+		position: absolute;
+		top: 12px; right: 16px;
+	}
+
+	button[type='submit'] {
+		position: absolute;
+		top: 72px; right: 50%;
+
+		// Mobile behavior
+		@media (max-width: 767px) {
+			transform: translateX(-8px);
+		}
+		// Desktop behavior
+		@media (min-width: 768px) {
+			transform: translateX(-33px - 8px);
+		}
+	}
+}

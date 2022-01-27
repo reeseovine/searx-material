@@ -1,0 +1,12 @@
+// Sticky footer styles
+.footer {
+	position: unset;
+	margin: 24px 0;
+	text-align: center;
+	@include body-small;
+
+	small {
+		font-size: inherit !important;
+		color: $on-surface;
+	}
+}

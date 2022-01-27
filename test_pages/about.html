@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" class="nojs">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="searx - a privacy-respecting, hackable metasearch engine" />
+    <meta name="keywords" content="searx, search, search engine, metasearch, meta search" />
+    <meta name="generator" content="searx/1.0.0-349-a1645851">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1 , maximum-scale=2.0, user-scalable=1" />
+    <title>about - searx</title>
+    <link rel="stylesheet" href="https://searx.seaofvoic.es/static/themes/oscar/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../css/material-light.css" type="text/css" />
+
+    <link rel="shortcut icon" href="https://searx.seaofvoic.es/static/themes/oscar/img/favicon.png" />
+
+
+    <link title="searx" type="application/opensearchdescription+xml" rel="search" href="/opensearch.xml?method=POST&amp;autocomplete="/>
+    <noscript>
+        <style type="text/css">
+            .tab-content > .active_if_nojs, .active_if_nojs {display: block !important; visibility: visible !important;}
+            .margin_top_if_nojs {margin-top: 20px;}
+            .hide_if_nojs {display: none !important;overflow: hidden !important;}
+            .disabled_if_nojs {pointer-events: none; cursor: default; text-decoration: line-through;}
+        </style>
+    </noscript>
+</head>
+<body class="about_endpoint" >
+<div class="searx-navbar"><span class="instance pull-left"><a href="/">searx</a></span><span class="pull-right"><a href="/about">about</a><a href="/preferences">preferences</a></span></div>
+    <div class="container">
+
+
+<div>
+  <h1>About <a href="/">searx</a></h1>
+
+  <p>
+    Searx is a <a href="https://en.wikipedia.org/wiki/Metasearch_engine">metasearch engine</a>,
+    aggregating the results of other <a href="/preferences">search engines</a>
+    while not storing information about its users.
+  </p>
+
+  <p>More about searx...</p>
+
+  <ul>
+    <li><a href="https://github.com/searx/searx">github</a></li>
+    <li><a href="https://twitter.com/Searx_engine">twitter</a></li>
+    <li>IRC: #searx @ freenode (<a href="https://kiwiirc.com/client/irc.freenode.com/searx">webclient</a>)</li>
+    <li><a href="https://www.transifex.com/projects/p/searx/">transifex</a></li>
+  </ul>
+
+  <hr />
+
+  <h2>Why use searx?</h2>
+
+  <ul>
+    <li>
+      Searx may not offer you as personalised results as Google, but it doesn't
+      generate a profile about you.
+    </li>
+    <li>
+      Searx doesn't care about what you search for, never shares anything with a
+      third party, and it can't be used to compromise you.
+    </li>
+    <li>
+      Searx is free software, the code is 100% open and you can help to make it
+      better.  See more on <a href="https://github.com/searx/searx">github</a>.
+    </li>
+  </ul>
+
+  <p>
+    If you do care about privacy, want to be a conscious user, or otherwise
+    believe in digital freedom, make searx your default search engine or run it
+    on your own server
+  </p>
+
+  <h2>Technical details - How does it work?</h2>
+
+  <p>
+    Searx is a <a href="https://en.wikipedia.org/wiki/Metasearch_engine">metasearch engine</a>,
+    inspired by the <a href="https://beniz.github.io/seeks/">seeks project</a>.
+
+    It provides basic privacy by mixing your queries with searches on other
+    platforms without storing search data. Queries are made using a POST request
+    on every browser (except Chromium-based browsers*).  Therefore they show up 
+    in neither our logs, nor your url history. In the case of Chromium-based
+    browser users there is an exception: searx uses the search bar to perform GET
+    requests.
+    
+    Searx can be added to your browser's search bar; moreover, it can be set as
+    the default search engine.
+  </p>
+
+  <h2 id='add to browser'>How to set as the default search engine?</h2>
+
+  <p>
+    Searx supports <a href="https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md">OpenSearch</a>.
+    For more information on changing your default search engine, see your browser's documentation:
+  </p>
+
+  <ul>
+    <li><a href="https://support.mozilla.org/en-US/kb/add-or-remove-search-engine-firefox">Firefox</a></li>
+    <li><a href="https://support.microsoft.com/en-us/help/4028574/microsoft-edge-change-the-default-search-engine">Microsoft Edge</a></li>
+    <li>Chromium-based browsers <a href="https://www.chromium.org/tab-to-search">only add websites that the user navigates to without a path.</a>
+  </ul>
+
+  <h2>Where to find anonymous usage statistics of this instance ?</h2>
+
+  <p>
+    <a href="/stats">Stats page</a> contains some useful data about the engines used.
+  </p>
+
+  <h2>How can I make it my own?</h2>
+
+  <p>
+    Searx appreciates your concern regarding logs, so take the
+    code from the <a href="https://github.com/searx/searx">original searx project</a> and
+    run it yourself!
+  </p>
+  <p>
+    Add your searx instance to this <a href="https://searx.space"> list
+    of public searx instances</a> to help other people reclaim their privacy and
+    make the Internet freer! The more decentralized the Internet is, the more
+    freedom we have!
+  </p>
+
+  <h2>Where are the docs & code of this instance?</h2>
+
+  <p>
+    See the <a href="https://searx.github.io/searx">https://searx.github.io/searx</a>
+    and <a href="https://github.com/searx/searx">https://github.com/searx/searx</a>
+  </p>
+
+</div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+            <p class="text-muted">
+                <small>
+                    Powered by <a href="https://searx.github.io/searx">searx</a> - 1.0.0-349-a1645851 - a privacy-respecting, hackable metasearch engine<br/>
+                    <a href="https://github.com/searx/searx">Source code</a> |
+                    <a href="https://github.com/searx/searx/issues">Issue tracker</a> |
+                    <a href="https://searx.space">Public instances</a>                </small>
+            </p>
+        </div>
+    </div>
+    <script src="https://searx.seaofvoic.es/static/themes/oscar/js/jquery.min.js"></script>
+    <script src="https://searx.seaofvoic.es/static/themes/oscar/js/bootstrap.min.js"></script>
+
+    <script src="https://searx.seaofvoic.es/static/themes/oscar/js/searx.min.js"
+            data-method="POST"
+            data-autocompleter="false"
+            data-translations="{&#34;no_item_found&#34;:&#34;No item found&#34;}"></script>
+    <script src="https://searx.seaofvoic.es/static/plugins/js/search_on_category_select.js"></script>
+    <noscript>
+      <style>
+        .glyphicon { display: none; }
+      </style>
+    </noscript>
+</body>
+</html>

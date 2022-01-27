@@ -1,0 +1,79 @@
+// Global styles
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: $surface;
+	color: $on-surface;
+	font-family: "Roboto", "Noto Sans", sans-serif;
+	@include body-medium;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+a {
+	color: $primary !important;
+	text-decoration: none !important;
+	border-bottom: 1px solid transparent;
+	transition: border-bottom-color ease .1s;
+	&:hover {
+		border-bottom-color: $primary;
+	}
+}
+
+.cursor-text {
+    cursor: text !important;
+}
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+// Tables
+table {
+	width: 100%;
+	overflow-x: auto;
+	border-collapse: separate;
+	border-spacing: 0;
+	border: 1px solid $surface-variant;
+	border-radius: 24px;
+
+	tr:first-child th, tr:first-child td { border-top: 0; }
+	td:first-child, th:first-child { border-left: 0; }
+	tr:last-child th, tr:last-child td { border-bottom: 0; }
+	td:last-child, th:last-child { border-right: 0; }
+
+	tr:first-child td:first-child, tr:first-child th:first-child { border-top-left-radius: 24px; }
+	tr:first-child td:last-child, tr:first-child th:last-child { border-top-right-radius: 24px; }
+	tr:last-child td:first-child, tr:last-child th:first-child { border-bottom-left-radius: 24px; }
+	tr:last-child td:last-child, tr:last-child th:last-child { border-bottom-right-radius: 24px; }
+
+	td, th {
+		padding: 16px 24px;
+		border-top: 1px solid $surface-variant;
+		border-left: 1px solid $surface-variant;
+		vertical-align: middle;
+
+		&:empty {
+			border-top: 0;
+			border-left: 0;
+		}
+	}
+	th {
+		background-color: $surface1;
+		color: $on-surface-variant;
+		@include title-medium;
+	}
+	td {
+		@include body-large;
+	}
+}

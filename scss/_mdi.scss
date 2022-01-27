@@ -1,0 +1,28 @@
+// Mixins for Material Design Icons
+
+@mixin mdi($name, $size, $color, $padded: false) {
+	display: block;
+	content: '';
+	width: $size;
+	height: $size;
+	padding: 0;
+
+	// hide text
+	overflow: hidden;
+	color: transparent;
+
+	// the icon
+	background-color: $color;
+	mask-image: svg('node_modules/@mdi/svg/svg/#{$name}.svg');
+	mask-position: center;
+	mask-repeat: no-repeat;
+	@if $padded {
+		mask-size: ($size * .5) ($size * .5);
+	} @else {
+		mask-size: $size $size;
+	}
+}
+
+.glyphicon {
+	display: none !important;
+}

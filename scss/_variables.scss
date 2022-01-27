@@ -1,0 +1,113 @@
+// Original palette - will eventually be removed once everything is converted
+$black: #29314D;
+$gray: #A4A4A4;
+$dim-gray: #F6F9FA;
+$dark-gray: #666;
+$semidark-gray: #888;
+$middle-gray: #F5F5F5;
+$mild-gray: #DDD;
+$dark-blue: #007AB8;
+$blue: #0088CC;
+$red: #F35E77;
+$violet: #684898;
+$dark-green: #068922;
+$green: #2ecc71;
+$light-green: #01D7D4;
+$orange: #FFA92F;
+$dark-red: #c9432f;
+
+
+// Material You color palette
+$primary100: #ffffff;
+$primary99: #f1fff8;
+$primary95: #b6ffe7;
+$primary90: #7ef8d3;
+$primary80: #60dbb8;
+$primary70: #3fbf9d;
+$primary60: #11a484;
+$primary50: #00876a;
+$primary40: #006b54;
+$primary30: #00513f;
+$primary20: #00382a;
+$primary10: #012018;
+$primary0: #000000;
+$secondary100: #ffffff;
+$secondary99: #f1fff8;
+$secondary95: #dbf7eb;
+$secondary90: #cee8dd;
+$secondary80: #b2ccc1;
+$secondary70: #97b1a6;
+$secondary60: #7d968c;
+$secondary50: #647c73;
+$secondary40: #4b635a;
+$secondary30: #344b43;
+$secondary20: #1d352d;
+$secondary10: #072019;
+$secondary0: #000000;
+$tertiary100: #ffffff;
+$tertiary99: #f9fcff;
+$tertiary95: #e1f3ff;
+$tertiary90: #c4e8ff;
+$tertiary80: #a8cbe2;
+$tertiary70: #8db0c6;
+$tertiary60: #7395aa;
+$tertiary50: #597b90;
+$tertiary40: #416376;
+$tertiary30: #284b5e;
+$tertiary20: #0d3446;
+$tertiary10: #001e2c;
+$tertiary0: #000000;
+$neutral100: #ffffff;
+$neutral99: #fbfdfa;
+$neutral95: #eff1ee;
+$neutral90: #e1e3e0;
+$neutral80: #c4c7c4;
+$neutral70: #a9aca9;
+$neutral60: #8e928f;
+$neutral50: #747875;
+$neutral40: #5c5f5d;
+$neutral30: #444745;
+$neutral20: #2d312f;
+$neutral10: #191c1b;
+$neutral0: #000000;
+$neutral-variant100: #ffffff;
+$neutral-variant99: #f5fff9;
+$neutral-variant95: #e9f3ed;
+$neutral-variant90: #dbe5df;
+$neutral-variant80: #bfc9c3;
+$neutral-variant70: #a4ada8;
+$neutral-variant60: #89938e;
+$neutral-variant50: #6f7974;
+$neutral-variant40: #57605c;
+$neutral-variant30: #3f4945;
+$neutral-variant20: #29322e;
+$neutral-variant10: #151d1a;
+$neutral-variant0: #000000;
+$error100: #ffffff;
+$error99: #fcfcfc;
+$error95: #ffede9;
+$error90: #ffdad4;
+$error80: #ffb4a9;
+$error70: #ff897a;
+$error60: #ff5449;
+$error50: #dd3730;
+$error40: #ba1b1b;
+$error30: #930006;
+$error20: #680003;
+$error10: #410001;
+$error0: #000000;
+
+
+// More surface colors
+$surface1: mix($primary, $surface,  5%);
+$surface2: mix($primary, $surface,  8%);
+$surface3: mix($primary, $surface, 11%);
+$surface4: mix($primary, $surface, 12%);
+$surface5: mix($primary, $surface, 14%);
+
+// Elevation mixins
+@mixin elevation1 { box-shadow: 0 1px 2px 0px rgba($shadow, 30%), 0 1px 3px 1px rgba($shadow, 15%); }
+@mixin elevation2 { box-shadow: 0 1px 2px 0px rgba($shadow, 30%), 0 2px 6px 2px rgba($shadow, 15%); }
+@mixin elevation3 { box-shadow: 0 1px 3px 0px rgba($shadow, 30%), 0 4px 8px 3px rgba($shadow, 15%); }
+@mixin elevation4 { box-shadow: 0 2px 3px 0px rgba($shadow, 30%), 0 8px 10px 4px rgba($shadow, 15%); }
+@mixin elevation5 { box-shadow: 0 4px 4px 0px rgba($shadow, 30%), 0 8px 12px 6px rgba($shadow, 15%); }
