@@ -1,0 +1,25 @@
+// Mixin for cards
+@mixin card($type: 'filled', $background: $surface) {
+	border-radius: 12px !important;
+	padding: 16px;
+	margin-bottom: 24px;
+	@include body-medium;
+
+	// Card styles
+	@if $type == 'elevated' {
+		border: none;
+		@if $background { background-color: $background !important; }
+		@else { background-color: $surface1 !important; }
+		@include elevation1;
+	}
+	@else if $type == 'filled' {
+		border: none;
+		@if $background { background-color: $background !important; }
+		@else { background-color: $surface-variant !important; }
+	}
+	@else if $type == 'outlined' {
+		@if $background { background-color: $background !important; }
+		@else { background-color: $surface !important; }
+		border: 1px solid $outline;
+	}
+}

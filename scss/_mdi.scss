@@ -1,5 +1,4 @@
-// Mixins for Material Design Icons
-
+// Mixin for Material Design Icons
 @mixin mdi($name, $size, $color, $padded: false) {
 	display: block;
 	content: '';

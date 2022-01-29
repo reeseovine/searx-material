@@ -1,31 +1,19 @@
 body.search_endpoint .advanced {
-	margin-top: 0;
-	position: relative;
-	text-align: left;
+	margin-top: 24px;
+	text-align: center;
 
 	// "Advanced settings" button
 	input#check-advanced {
 		display: none;
 	}
 	label[for='check-advanced'] {
-		cursor: pointer;
-		position: absolute;
-		top: -64px; left: 50%;
+		margin: 0;
+		margin-bottom: 24px;
 		@include button('text', 'filter-variant', ' ');
-
-		// Mobile behavior
-		@media (max-width: 767px) {
-			color: transparent !important;
-			width: 50px !important;
-			transform: translateX(8px);
-		}
-		// Desktop behavior
-		@media (min-width: 768px) {
-			transform: translateX(-33px + 8px);
-			@include label-large;
-		}
+		@include label-large;
 	}
 
+	// Mobile behavior - sheet background
 	@media (max-width: 767px) {
 		#check-advanced:checked + label {
 			&::before, &::after { display: none !important; }
@@ -51,7 +39,7 @@ body.search_endpoint .advanced {
 		border-radius: 28px !important;
 		background-color: $surface1;
 
-		// Mobile behavior
+		// Mobile behavior - bottom sheet
 		@media (max-width: 767px) {
 			z-index: 999999;
 			position: fixed;
@@ -69,12 +57,14 @@ body.search_endpoint .advanced {
 				@include headline6;
 			}
 		}
-		// Desktop behavior
+		// Desktop behavior - collapsible section
 		@media (min-width: 768px) {
-			opacity: 0;
+			// opacity: 0;
 			height: 0;
+			padding-top: 0;
+			padding-bottom: 0;
 			overflow: hidden;
-			transition: opacity ease 0.25s, height ease 0.25s;
+			transition: opacity ease 0.25s, height ease 0.25s, padding 0.25s;
 		}
 	}
 	#check-advanced:checked ~ #advanced-search-container {
@@ -85,67 +75,37 @@ body.search_endpoint .advanced {
 		// Desktop behavior
 		@media (min-width: 768px) {
 			opacity: 1;
-			height: 210.5px;
-		}
-	}
-
-	// Category chips
-	#categories {
-		display: flex;
-		flex-flow: row wrap;
-		align-items: flex-start;
-		gap: 16px 8px;
-
-		label {
-			display: block;
-			flex-grow: 0;
-			background-color: $surface;
-			color: $on-surface-variant;
-			border: 1px solid $outline;
-			border-radius: 8px !important;
-			height: 32px;
-			padding: 0 16px;
-			margin: 0;
-			transition: all ease-in-out .1s;
-
-			@include label-large;
-			line-height: 32px;
-
-			text-transform: capitalize;
-			&[for='checkbox_it'] {
-				text-transform: uppercase;
-			}
-		}
-
-		input[type="checkbox"]:checked + label {
-			color: $on-secondary-container;
-			background-color: $secondary-container;
-			border-color: transparent;
+			height: 200px;
+			padding: 24px !important;
 		}
 	}
 }
 
-// Combo box labels
-#advanced-search-container :not(#categories) {
-	label {
-		z-index: 20;
-		position: relative !important;
-		top: 17px; left: 12px;
-		@include label-small;
+body.results_endpoint {
+	.custom-select, .custom-select-rtl {
 		background-color: $surface1;
-		border: none;
-		padding: 4px;
-		margin: 0;
-		color: $outline;
-		transition: color ease-in-out .15s;
-
-		// counteract .visually-hidden styles
-		height: auto !important;
-		width: auto !important;
-		clip: none !important;
 	}
-	:focus-within label {
-		color: $primary;
+}
+
+// Category chips
+#categories {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: flex-start;
+	gap: 16px 8px;
+	margin-bottom: 24px;
+
+	label {
+		@include chip;
+
+		text-transform: capitalize;
+		&[for='checkbox_it'] {
+			text-transform: uppercase;
+		}
+	}
+
+	input[type="checkbox"]:checked + label {
+		@include chip($selected: true);
 	}
 }
 
@@ -154,28 +114,16 @@ body.search_endpoint .advanced {
 	appearance: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
+	outline: none;
+	box-shadow: none !important;
+	border: none;
 
 	height: 48px;
 	border-radius: 4px !important;
-	z-index: 10;
-	position: relative;
 
-	border: 1px solid $outline;
-	outline: none;
-	box-shadow: none !important;
-	background-color: $surface1;
+	background-color: $surface;
 	color: $on-surface-variant;
 
 	@include body-medium;
 	text-overflow: ellipsis;
-
-	&:focus {
-		border-color: $primary;
-	}
-
-	&::after {
-		position: absolute;
-		top: 50%; right: 16px;
-		@include mdi('chevron-down', 18px, $outline);
-	}
 }

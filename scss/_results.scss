@@ -1,3 +1,66 @@
+.alert {
+	@include card;
+	margin-bottom: 24px;
+
+	&.alert-danger {
+		@include card($background: $error-container);
+		color: $on-error-container;
+	}
+
+	p {
+		margin: 0;
+	}
+}
+
+.panel {
+	@include card('elevated', $background: $surface1);
+
+	.panel-heading {
+		background: none;
+		color: inherit;
+		border: none;
+		padding: 0;
+		margin: 0;
+		margin-bottom: 8px;
+
+		.panel-title {
+			@include body-large;
+		}
+	}
+
+	.panel-body {
+		padding: 0;
+	}
+
+	// "Links" card
+	&.panel-default.hidden-xs .panel-body {
+		.form-group {
+
+		}
+
+		label {
+			margin-bottom: 8px;
+		}
+
+		.result_download .btn {
+			@include chip($style: 'elevated');
+			margin-right: 8px;
+			text-transform: uppercase;
+		}
+
+		> label:last-of-type, > br:last-of-type {
+			display: none;
+		}
+	}
+}
+
+
+
+
+
+
+// Old
+
 .result_header {
     margin-top: 0px;
     margin-bottom: 2px;

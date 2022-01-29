@@ -1,0 +1,62 @@
+// Chips
+@mixin chip($style: 'flat', $disabled: false, $selected: false) {
+	display: block;
+	flex-grow: 0;
+	border-radius: 8px !important;
+	height: 32px;
+	padding: 0 16px;
+	margin: 0;
+	transition: all ease-in-out .1s;
+	cursor: pointer;
+
+	@include label-large;
+	line-height: 32px;
+
+	@if $selected {
+		background-color: $secondary-container;
+		color: $on-secondary-container;
+
+		&:hover {
+			background-color: mix($on-secondary-container, $secondary-container, 8%);
+		}
+		&:active {
+			background-color: mix($on-secondary-container, $secondary-container, 12%);
+		}
+	} @else {
+		background-color: $surface;
+		color: $on-surface-variant;
+
+		&:hover {
+			background-color: mix($on-surface-variant, $surface, 8%);
+		}
+		&:active {
+			background-color: mix($on-surface-variant, $surface, 12%);
+		}
+	}
+
+	@if $disabled {
+		background-color: rgba($on-surface, 12%);
+		color: rgba($on-surface, 38%);
+		cursor: not-allowed;
+	}
+
+	@if $style == 'flat' {
+		@if $selected {
+			border: 1px solid $secondary-container !important;
+			&:hover {
+				// @include elevation1;
+			}
+		} @else if $disabled {
+			background-color: transparent !important;
+			border: 1px solid rgba($on-surface, 12%) !important;
+		} @else {
+			border: 1px solid $outline !important;
+		}
+	} @else if $style == 'elevated' {
+		border: none !important;
+		@include elevation1;
+		&:hover {
+			@include elevation2;
+		}
+	}
+}

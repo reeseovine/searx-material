@@ -22,7 +22,7 @@
 	color: $on-surface;
 
 	&:focus {
-		@include elevation1;
+		// @include elevation1;
 	}
 
 	&::placeholder {
@@ -30,53 +30,51 @@
 	}
 }
 
-button[type='reset'] {
-	background-color: none;
-	border: none;
-	@include mdi('close', 24px, $outline);
+#search_form {
+	.input-group {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		position: relative;
+
+		.input-group-btn {
+			display: block;
+			width: auto;
+		}
+
+		button[type='submit'] {
+			position: unset;
+			@include button('filled');
+			width: 48px !important;
+			height: 48px !important;
+			border-radius: 48px !important;
+			padding: 0 !important;
+
+			&::before {
+				flex-shrink: 0;
+				@include mdi('magnify', 20px, $on-primary);
+			}
+		}
+
+		button[type='reset'], #clear_search {
+			position: absolute;
+			top: 50%; right: 16px + 16px + 48px;
+			transform: translateY(-50%);
+			z-index: 999;
+
+			background-color: none;
+			border: none;
+			@include mdi('close', 24px, $outline);
+		}
+	}
 }
 
-button[type='submit'] {
-	// Mobile behavior
-	@media (max-width: 767px) {
-		@include button('filled', 'magnify');
-	}
-	// Desktop behavior
-	@media (min-width: 768px) {
-		@include button('filled', 'magnify', 'Search');
-	}
-}
-
-body.search_endpoint #search_form .input-group {
-	display: block;
-	position: relative;
-	height: 112px;
-	margin-bottom: 24px;
-
-	.input-group-btn {
-		position: absolute;
-		top: 0; left: 0;
-		width: 100%;
-		height: 0;
-		z-index: 999;
+body.results_endpoint #search_form {
+	.row [class^='col-'] {
+		margin-bottom: 16px;
 	}
 
-	button[type='reset'] {
-		position: absolute;
-		top: 12px; right: 16px;
-	}
-
-	button[type='submit'] {
-		position: absolute;
-		top: 72px; right: 50%;
-
-		// Mobile behavior
-		@media (max-width: 767px) {
-			transform: translateX(-8px);
-		}
-		// Desktop behavior
-		@media (min-width: 768px) {
-			transform: translateX(-33px - 8px);
-		}
+	#q {
+		font-size: 16px;
 	}
 }
