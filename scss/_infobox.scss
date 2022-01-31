@@ -27,6 +27,7 @@
 
 	img {
 		@include card-image;
+		display: block !important;
 		padding: 0 !important;
 	}
 

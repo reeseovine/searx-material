@@ -31,7 +31,7 @@
 	width: 34px;
 	height: 14px;
 	border-radius: 7px !important;
-	background-color: $surface-variant;
+	background-color: mix($primary, $surface, 38%);
 	transition: all 0.25s;
 
 	&::before, &::after {
@@ -39,25 +39,26 @@
 	}
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-	background-color: mix($primary, $surface, 38%);
+	background-color: $surface-variant;
 }
 
 .onoffswitch-switch {
 	display: block;
 	width: 20px;
 	height: 20px;
-	background-color: mix($on-surface, $surface, 12%);
+	background-color: $primary;
 	position: absolute;
 	top: -3px;
-	left: -3px;
+	// The switches are inverted for some weird reason so if this confuses you at first, that's why
+	left: calc(100% - 20px + 3px);
 	border: none;
 	border-radius: 10px !important;
 	transition: all 0.25s;
 	@include elevation1;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-	left: calc(100% - 20px + 3px);
-	background-color: $primary;
+	background-color: mix($on-surface, $surface, 12%);
+	left: -3px;
 }
 .onoffswitch-checkbox:focus + .onoffswitch-label .onoffswitch-switch {
 	border: none;

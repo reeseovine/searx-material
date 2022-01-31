@@ -597,7 +597,7 @@ h6 {
   width: 34px;
   height: 14px;
   border-radius: 7px !important;
-  background-color: #3f4945;
+  background-color: #346557;
   transition: all 0.25s;
 }
 .onoffswitch-inner::before, .onoffswitch-inner::after {
@@ -605,17 +605,17 @@ h6 {
 }
 
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-  background-color: #346557;
+  background-color: #3f4945;
 }
 
 .onoffswitch-switch {
   display: block;
   width: 20px;
   height: 20px;
-  background-color: #313433;
+  background-color: #60dbb8;
   position: absolute;
   top: -3px;
-  left: -3px;
+  left: calc(100% - 20px + 3px);
   border: none;
   border-radius: 10px !important;
   transition: all 0.25s;
@@ -623,8 +623,8 @@ h6 {
 }
 
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-  left: calc(100% - 20px + 3px);
-  background-color: #60dbb8;
+  background-color: #313433;
+  left: -3px;
 }
 
 .onoffswitch-checkbox:focus + .onoffswitch-label .onoffswitch-switch {
@@ -988,6 +988,35 @@ input[type=checkbox]:not(:checked) + .label_hide_if_not_checked, input[type=chec
   line-height: 20px !important;
   letter-spacing: 0.25px !important;
 }
+.panel .panel-body .suggestion_item {
+  margin: 0 8px 8px 0;
+  padding: 0;
+}
+.panel .panel-body .suggestion_item .btn {
+  display: block;
+  overflow: hidden;
+  flex-grow: 0;
+  border-radius: 8px !important;
+  height: 32px;
+  padding: 0 16px;
+  margin: 0;
+  transition: all ease-in-out 0.1s;
+  cursor: pointer;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 20px !important;
+  letter-spacing: 0.1px !important;
+  line-height: 32px !important;
+  background-color: #191c1b;
+  color: #bfc9c3;
+  border: 1px solid #89938e !important;
+}
+.panel .panel-body .suggestion_item .btn:hover {
+  background-color: #262a28;
+}
+.panel .panel-body .suggestion_item .btn:active {
+  background-color: #2d312f;
+}
 .panel .panel-heading ~ .panel-body {
   padding-top: 0 !important;
 }
@@ -1039,6 +1068,7 @@ input[type=checkbox]:not(:checked) + .label_hide_if_not_checked, input[type=chec
 }
 .panel.panel-default.hidden-xs .panel-body .result_download .btn {
   display: block;
+  overflow: hidden;
   flex-grow: 0;
   border-radius: 8px !important;
   height: 32px;
@@ -1120,6 +1150,9 @@ input[type=checkbox]:not(:checked) + .label_hide_if_not_checked, input[type=chec
   font-weight: 400 !important;
   line-height: 16px !important;
   letter-spacing: 0.4px !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 .result .pull-right .label {
   font-size: 12px !important;
@@ -1504,7 +1537,8 @@ input[type=checkbox]:not(:checked) + .label_hide_if_not_checked, input[type=chec
   height: auto;
   max-width: none;
   width: 100%;
-  border-radius: 12px;
+  border-radius: 12px !important;
+  display: block !important;
   padding: 0 !important;
 }
 .infobox .btn {
@@ -1516,6 +1550,7 @@ input[type=checkbox]:not(:checked) + .label_hide_if_not_checked, input[type=chec
 }
 .infobox .btn a {
   display: block;
+  overflow: hidden;
   flex-grow: 0;
   border-radius: 8px !important;
   height: 32px;
@@ -1824,6 +1859,7 @@ body.results_endpoint #search_form #q {
 }
 #categories label {
   display: block;
+  overflow: hidden;
   flex-grow: 0;
   border-radius: 8px !important;
   height: 32px;
@@ -1852,6 +1888,7 @@ body.results_endpoint #search_form #q {
 }
 #categories input[type=checkbox]:checked + label {
   display: block;
+  overflow: hidden;
   flex-grow: 0;
   border-radius: 8px !important;
   height: 32px;

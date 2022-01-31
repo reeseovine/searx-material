@@ -1,12 +1,12 @@
 /* ==UserStyle==
 @name           Searx Material (Light)
 @namespace      github.com/katacarbix/searx-material
-@version        1.0.0
+@version        1.0.1
 @description    Light Material Design 3 theme for Searx
 @author         katacarbix
 @license        CC0-1.0
 ==/UserStyle== */
-@-moz-document url-prefix("") {
+@-moz-document domain("") {
   h1 {
     font-size: 36px !important;
     font-weight: 400 !important;
@@ -606,7 +606,7 @@
     width: 34px;
     height: 14px;
     border-radius: 7px !important;
-    background-color: #dbe5df;
+    background-color: #9cc6bb;
     transition: all 0.25s;
   }
   .onoffswitch-inner::before, .onoffswitch-inner::after {
@@ -614,17 +614,17 @@
   }
 
   .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-    background-color: #9cc6bb;
+    background-color: #dbe5df;
   }
 
   .onoffswitch-switch {
     display: block;
     width: 20px;
     height: 20px;
-    background-color: #e0e2df;
+    background-color: #006b54;
     position: absolute;
     top: -3px;
-    left: -3px;
+    left: calc(100% - 20px + 3px);
     border: none;
     border-radius: 10px !important;
     transition: all 0.25s;
@@ -632,8 +632,8 @@
   }
 
   .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    left: calc(100% - 20px + 3px);
-    background-color: #006b54;
+    background-color: #e0e2df;
+    left: -3px;
   }
 
   .onoffswitch-checkbox:focus + .onoffswitch-label .onoffswitch-switch {
@@ -997,6 +997,35 @@ input:not([type])::placeholder {
     line-height: 20px !important;
     letter-spacing: 0.25px !important;
   }
+  .panel .panel-body .suggestion_item {
+    margin: 0 8px 8px 0;
+    padding: 0;
+  }
+  .panel .panel-body .suggestion_item .btn {
+    display: block;
+    overflow: hidden;
+    flex-grow: 0;
+    border-radius: 8px !important;
+    height: 32px;
+    padding: 0 16px;
+    margin: 0;
+    transition: all ease-in-out 0.1s;
+    cursor: pointer;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    line-height: 20px !important;
+    letter-spacing: 0.1px !important;
+    line-height: 32px !important;
+    background-color: #fbfdfa;
+    color: #3f4945;
+    border: 1px solid #6f7974 !important;
+  }
+  .panel .panel-body .suggestion_item .btn:hover {
+    background-color: #ecefec;
+  }
+  .panel .panel-body .suggestion_item .btn:active {
+    background-color: #e4e7e4;
+  }
   .panel .panel-heading ~ .panel-body {
     padding-top: 0 !important;
   }
@@ -1048,6 +1077,7 @@ input:not([type])::placeholder {
   }
   .panel.panel-default.hidden-xs .panel-body .result_download .btn {
     display: block;
+    overflow: hidden;
     flex-grow: 0;
     border-radius: 8px !important;
     height: 32px;
@@ -1129,6 +1159,9 @@ input:not([type])::placeholder {
     font-weight: 400 !important;
     line-height: 16px !important;
     letter-spacing: 0.4px !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
   }
   .result .pull-right .label {
     font-size: 12px !important;
@@ -1513,7 +1546,8 @@ input:not([type])::placeholder {
     height: auto;
     max-width: none;
     width: 100%;
-    border-radius: 12px;
+    border-radius: 12px !important;
+    display: block !important;
     padding: 0 !important;
   }
   .infobox .btn {
@@ -1525,6 +1559,7 @@ input:not([type])::placeholder {
   }
   .infobox .btn a {
     display: block;
+    overflow: hidden;
     flex-grow: 0;
     border-radius: 8px !important;
     height: 32px;
@@ -1833,6 +1868,7 @@ input:not([type])::placeholder {
   }
   #categories label {
     display: block;
+    overflow: hidden;
     flex-grow: 0;
     border-radius: 8px !important;
     height: 32px;
@@ -1861,6 +1897,7 @@ input:not([type])::placeholder {
   }
   #categories input[type=checkbox]:checked + label {
     display: block;
+    overflow: hidden;
     flex-grow: 0;
     border-radius: 8px !important;
     height: 32px;
