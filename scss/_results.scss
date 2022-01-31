@@ -1,5 +1,6 @@
 .alert {
 	@include card;
+	padding: 16px !important;
 	margin-bottom: 24px;
 
 	&.alert-danger {
@@ -8,28 +9,39 @@
 	}
 
 	p {
+		padding: 0;
 		margin: 0;
 	}
 }
 
 .panel {
-	@include card('elevated', $background: $surface1);
+	@include card($background: $surface1);
 
 	.panel-heading {
+		@include card-header;
 		background: none;
 		color: inherit;
 		border: none;
-		padding: 0;
 		margin: 0;
-		margin-bottom: 8px;
-
-		.panel-title {
-			@include body-large;
-		}
 	}
 
 	.panel-body {
-		padding: 0;
+		@include card-body;
+	}
+
+	.panel-heading ~ .panel-body {
+		padding-top: 0 !important;
+	}
+
+	.panel-body ~ .panel-footer {
+		padding-top: 0 !important;
+	}
+
+	.panel-footer {
+		@include card-footer;
+		background: transparent;
+		border: none;
+		border-radius: 0;
 	}
 
 	// "Links" card
@@ -54,277 +66,347 @@
 	}
 }
 
-
-
-
-
-
-// Old
-
+// Search results
 .result_header {
-    margin-top: 0px;
-    margin-bottom: 2px;
-    font-size: 16px;
+	margin: 0;
+	@include title-medium;
 
-    .favicon {
-        margin-bottom:-3px;
-    }
+	.favicon {
+		display: none !important;
+	}
 
-    a {
-        color: $black;
-        text-decoration: none;
-
-        &:hover{
-            color: $blue;
-        }
-
-        &:visited{
-            color: $violet;
-        }
-
-        .highlight {
-            background-color: $dim-gray;
-            // Chrome hack: bold is different size than normal
-            // https://stackoverflow.com/questions/20713988/weird-text-alignment-issue-in-css-when-bolded-lucida-sans
-        }
-    }
+	a {
+		color: $primary;
+		&:hover { color: $primary; }
+		&:visited { color: rgba($tertiary, 88%) !important; }
+	}
 }
 
 .result-content, .result-format, .result-source {
-    margin-top: 2px;
-    margin-bottom: 0;
-    word-wrap: break-word;
-    color: $dark-gray;
-    font-size: 13px;
+	@include body-medium;
+	margin: 0 0 2px;
 }
 
 .result .highlight {
-    font-weight: bold;
+	background-color: $surface1;
+	border-radius: 4px;
+	font-weight: bold;
 }
 
 .result-source {
-    font-size: 10px;
-    float: left;
 }
 
 .result-format {
-    font-size: 10px;
-    float: right;
 }
 
 .result-abstract {
-    margin-top: 0.5em;
-    margin-bottom: 0.8em;
 }
 
 .external-link {
-    color: $dark-green;
-    font-size: 12px;
-    margin-bottom: 15px;
-
-    a {
-        margin-right: 3px;
-    }
+	@include body-small;
+	color: $secondary;
+	padding-right: 16px;
 }
+
+.result {
+	.pull-right {
+		@include body-small;
+
+		// sources
+		.label {
+			@include body-small;
+			background-color: transparent;
+			color: $on-surface-variant;
+			padding: 0;
+			margin-right: 16px;
+		}
+
+		// "cached" link
+		.text-info {
+			@include body-small;
+			background-color: transparent;
+			color: $secondary;
+			padding-left: 20px;
+			margin: 0;
+			position: relative;
+
+			&::before {
+				@include mdi('cached', 16px, $secondary);
+				position: absolute;
+				top: 50%; left: 0;
+				transform: translateY(-50%);
+			}
+		}
+	}
+}
+
 
 // default formating of results
 .result-default, .result-code, .result-torrent, .result-videos, .result-map {
-    clear: both;
-    padding: 0.5em 4px;
-    &:hover{
-        background-color: $dim-gray;
-    }
+	clear: both;
+	padding: 0;
+	margin-bottom: 24px;
+
+	&:hover {
+		background-color: transparent;
+	}
 }
 
 
 // image formating of results
 .result-images {
-    float: left !important;
-    margin: 0;
-    padding: 0;
-    a {
-        display: block;
-        width: 100%;
-        background-size: cover;
-        .img-thumbnail {
-            border: none !important;
-            padding: 0;
-        }
-        &:hover, &:focus {
-            outline: 0;
-            .img-thumbnail {
-                box-shadow: 5px 5px 15px 0px black;
-            }
-        }
-    }
+	float: left !important;
+	margin: 0;
+	padding: 0;
+	a {
+		display: block;
+		width: 100%;
+		background-size: cover;
+		border: none !important;
+
+		.img-thumbnail {
+			border-radius: 12px;
+			border: none !important;
+			padding: 0;
+		}
+
+		&:hover, &:focus {
+			outline: 0;
+			.img-thumbnail {
+				@include elevation1;
+			}
+		}
+	}
 }
 
 .result-images.js a .img-thumbnail {
-    max-height: inherit;
-    min-height: inherit;
+	max-height: inherit;
+	min-height: inherit;
 }
 
 .result-images:not(.js) {
-    width: 25%;
-    padding: 3px 13px 13px 3px;
-    a {
-        .img-thumbnail {
-            margin: 0;
-            max-height: 128px;
-            min-height: 128px;
-        }
-    }
+	width: 25%;
+	a {
+		.img-thumbnail {
+			margin: 0;
+			max-height: 128px;
+			min-height: 128px;
+		}
+	}
 }
 
 .img-thumbnail {
-    margin: 5px;
-    max-height: 128px;
-    min-height: 128px;
+	max-height: 128px;
+	min-height: 128px;
 }
 
 // video formating of results
 .result-videos {
-    clear: both;
+	clear: both;
 
-    hr{
-        margin: 5px 0 15px 0;
-    }
+	hr{
+		margin: 5px 0 15px 0;
+	}
 
-    .collapse{
-        width: 100%;
-    }
+	.collapse{
+		width: 100%;
+	}
 
-    .in{
-        margin-bottom: 8px;
-    }
+	.in{
+		margin-bottom: 8px;
+	}
 }
 
 // torrent formating of results
 .result-torrent {
-    clear: both;
+	clear: both;
 
-    b{
-        margin-right: 5px;
-        margin-left: 5px;
-    }
+	b{
+		margin-right: 5px;
+		margin-left: 5px;
+	}
 
-    .seeders{
-        color: $green;
-    }
+	.seeders{
+		color: $green;
+	}
 
-    .leechers{
-        color: $red;
-    }
+	.leechers{
+		color: $red;
+	}
 }
 
 .result-metadata {
-    clear: both;
-    margin: 1em;
+	clear: both;
+	margin: 1em;
 
-    td {
-        padding-right: 1em;
-        color: $gray;
-    }
+	td {
+		padding-right: 1em;
+		color: $gray;
+	}
 
-    td:first-of-type {
-        color: $dark-gray;
-    }
+	td:first-of-type {
+		color: $dark-gray;
+	}
 }
 
 // map formating of results
 .result-map {
-    clear: both;
+	clear: both;
 
-    .img-thumbnail {
-        float: right;
-        width: auto;
-        height: 120px;
-        border: 0;
-        background: inherit;
-    }
+	.img-thumbnail {
+		float: right;
+		width: auto;
+		height: 120px;
+		border: 0;
+		background: inherit;
+	}
 
-    .img-type {
-        width: 20px;
-        max-height: 20px;
-    }
+	.img-type {
+		width: 20px;
+		max-height: 20px;
+	}
 
-    .result-map-details {
-        font-size: 13px;
-        border-collapse: separate;
-        border-spacing: 0 0.35rem;
+	.result-map-details {
+		font-size: 13px;
+		border-collapse: separate;
+		border-spacing: 0 0.35rem;
 
-        th {
-            font-weight: inherit;
-            width: 20rem;
-            vertical-align: top;
-        }
+		th {
+			font-weight: inherit;
+			width: 20rem;
+			vertical-align: top;
+		}
 
-        td {
-            vertical-align: top;
-        }
-    }
+		td {
+			vertical-align: top;
+		}
+	}
 
 }
 
 // code formating of results
 .result-code {
-    clear: both;
+	clear: both;
 
-    .code-fork, .code-fork a{
-        color: $dark-gray;
-    }
+	.code-fork, .code-fork a{
+		color: $dark-gray;
+	}
 
 }
 
 // suggestion
 .suggestion_item {
-    margin: 2px 5px;
-    max-width: 100%;
+	margin: 2px 5px;
+	max-width: 100%;
 
-    .btn {
-        max-width: 100%;
-        white-space: normal;
-        word-wrap: break-word;
-        text-align: left;
-    }
+	.btn {
+		max-width: 100%;
+		white-space: normal;
+		word-wrap: break-word;
+		text-align: left;
+	}
 }
 
 // download result
 .result_download {
-    margin-right: 5px;
+	margin-right: 5px;
 }
 
 // page forward, backward
 #pagination {
-    margin-top: 30px;
-    padding-bottom: 60px;
-}
-
-.label-default {
-    color: $dark-gray;
-    background: transparent;
+	margin-top: 30px;
+	padding-bottom: 60px;
 }
 
 .result .text-muted small {
-    word-wrap: break-word;
+	word-wrap: break-word;
 }
 
-.modal-wrapper {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-}
 
-.modal-wrapper {
-    background-clip: padding-box;
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-    outline: 0 none;
-    position: relative;
+// Modals
+.modal-backdrop {
+	@include dialog-scrim;
+	&.in {
+		opacity: 1;
+	}
 }
+.modal-dialog {
+	width: 560px;
+	max-width: 90vw;
+	margin: 16vh auto;
+}
+.modal {
+	padding: 0 !important;
 
-@media screen and (max-width: 75em) {
-    .img-thumbnail {
-        object-fit: cover;
-    }
+	.modal-wrapper {
+		@include dialog;
+	}
+
+	.modal-header {
+		@include dialog-header;
+		border: none !important;
+
+		button.close {
+			display: none;
+		}
+		.modal-title {
+			@include headline-small;
+		}
+	}
+
+	.modal-body {
+		@include dialog-body;
+
+		img {
+			border-radius: 12px;
+			width: auto;
+			height: auto;
+			max-width: 100%;
+		}
+
+		.result-content {
+			display: none;
+		}
+	}
+
+	.modal-footer {
+		@include dialog-footer;
+		border: none !important;
+
+		// URL
+		.pull-left {
+			@include body-small;
+			color: $secondary;
+			padding-right: 16px;
+			margin: 0;
+		}
+
+		// source
+		.pull-right {
+			@include body-small;
+			background-color: transparent;
+			color: $on-surface-variant;
+			padding: 0;
+		}
+
+		.row {
+			margin: 24px 0 0;
+
+			> * {
+				width: auto;
+				float: right;
+				padding: 0;
+			}
+
+			.btn {
+				@include button('text');
+			}
+		}
+	}
+
+	@media screen and (max-width: 75em) {
+		.img-thumbnail {
+			object-fit: cover;
+		}
+	}
 }

@@ -10,7 +10,7 @@
 	cursor: pointer;
 
 	@include label-large;
-	line-height: 32px;
+	line-height: 32px !important;
 
 	@if $selected {
 		background-color: $secondary-container;

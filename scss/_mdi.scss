@@ -1,7 +1,7 @@
 // Mixin for Material Design Icons
 @mixin mdi($name, $size, $color, $padded: false) {
-	display: block;
-	content: '';
+	display: inline-block;
+	content: ' ';
 	width: $size;
 	height: $size;
 	padding: 0;

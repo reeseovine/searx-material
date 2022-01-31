@@ -1,0 +1,36 @@
+// basic dialogs only - we don't need full-screen ones
+@mixin dialog($background: $surface) {
+	background-color: $background;
+	border-radius: 28px;
+	@include elevation3;
+}
+
+@mixin dialog-header {
+	padding: 24px 24px 8px;
+	color: $on-surface;
+	@include headline-small;
+}
+
+@mixin dialog-body {
+	padding: 8px 24px 12px;
+	color: $on-surface-variant;
+	@include body-medium;
+}
+
+@mixin dialog-footer {
+	padding: 12px 24px 24px;
+	// color: $primary;
+	// @include label-large;
+}
+
+@mixin dialog-image {
+	height: auto;
+	max-width: none;
+	width: 100%;
+	border-radius: 12px;
+}
+
+@mixin dialog-scrim {
+	background-color: rgba($inverse-surface, 62%);
+	padding: 0 !important;
+}

@@ -1,7 +1,7 @@
 // Mixin for cards
 @mixin card($type: 'filled', $background: $surface) {
 	border-radius: 12px !important;
-	padding: 16px;
+	padding: 0;
 	margin-bottom: 24px;
 	@include body-medium;
 
@@ -22,4 +22,24 @@
 		@else { background-color: $surface !important; }
 		border: 1px solid $outline;
 	}
+}
+
+@mixin card-header {
+	padding: 16px;
+	@include title-medium;
+}
+
+@mixin card-body {
+	padding: 16px;
+}
+
+@mixin card-footer {
+	padding: 16px;
+}
+
+@mixin card-image {
+	height: auto;
+	max-width: none;
+	width: 100%;
+	border-radius: 12px;
 }

@@ -75,15 +75,13 @@ body.search_endpoint .advanced {
 		// Desktop behavior
 		@media (min-width: 768px) {
 			opacity: 1;
-			height: 200px;
+			height: 192px;
 			padding: 24px !important;
 		}
 	}
-}
 
-body.results_endpoint {
 	.custom-select, .custom-select-rtl {
-		background-color: $surface1;
+		background-color: $surface;
 	}
 }
 
@@ -93,7 +91,7 @@ body.results_endpoint {
 	flex-flow: row wrap;
 	align-items: flex-start;
 	gap: 16px 8px;
-	margin-bottom: 24px;
+	margin-bottom: 16px;
 
 	label {
 		@include chip;
@@ -121,7 +119,7 @@ body.results_endpoint {
 	height: 48px;
 	border-radius: 4px !important;
 
-	background-color: $surface;
+	background-color: $surface1;
 	color: $on-surface-variant;
 
 	@include body-medium;

@@ -123,6 +123,9 @@
 	}
 
 	// Label
+	white-space: nowrap;
+	color: $content-color;
+	@include label-large;
 	@if $text {
 		&::after {
 			content: '#{$text}';

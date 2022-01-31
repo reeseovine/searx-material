@@ -1,31 +1,126 @@
-.table > tbody > tr > td, .table > tbody > tr > th {
-    vertical-align: middle !important;
-}
+body.preferences_endpoint {
+	h1 {
+		margin-bottom: 24px;
+	}
 
-.nav-tabs.nav-justified{
-  margin-bottom: 20px;
-}
+	@include body-large;
+	.btn:not([type='submit']) {
+		@include button('text');
+	}
+	.btn[type='submit'] {
+		@include button;
+		margin: 0 !important;
 
-p {
-    margin: 10px 0;
-}
+		~ a {
+			display: inline-block;
+			margin: 0 !important;
+		}
+	}
 
-input.cursor-text {
-    margin: 10px 0;
-}
+	.tab-content, .tab-pane {
+		> * {
+			margin: 0 0 24px;
+		}
+	}
 
-.engine-tooltip {
-    display: none;
-    position: absolute;
-    padding: 0.5rem 1rem;
-    margin: 0rem 0 0 2rem;
-    border: 1px solid #ddd;
-    background: white;
-    font-size: 14px;
-    font-weight: normal;
-    z-index: 1000000; 
-}
+	.container-fluid {
+		padding: 0;
+		margin: 0;
+	}
 
-th:hover .engine-tooltip, .engine-tooltip:hover {
-    display: inline-block;
+	#search_form {
+		margin-bottom: 24px;
+
+		> * {
+			margin-bottom: 24px;
+		}
+		> p {
+			color: $on-surface;
+			&:last-of-type {
+				margin-bottom: 8px;
+			}
+		}
+		small {
+			@include body-large;
+		}
+	}
+
+	#tab_general {
+		.form-group {
+			padding: 0;
+			margin: 0 0 24px;
+
+			[class^='col-'] {
+				min-height: 48px;
+				padding: 0 8px;
+				margin: 0;
+				display: flex;
+				align-items: center;
+			}
+			#categories {
+				min-height: 48px;
+				align-items: center;
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	#tab_engine {
+		.text-right {
+			text-align: left !important;
+			margin: 0;
+		}
+	}
+
+	#tab_plugins {
+		// Desktop behavior - give plugin cards a bit more wiggle room
+		@media (min-width: 768px) {
+			.panel-heading { padding: 24px 24px 16px; }
+			.panel-body { padding: 0 24px 24px; }
+		}
+		.panel-body {
+			display: flex;
+			align-items: center;
+
+			[class^='col-'] {
+				padding: 0;
+				margin: 0;
+				float: none;
+				&:first-child {
+					flex-grow: 99999;
+				}
+				&:last-child {
+					width: 34px;
+				}
+			}
+		}
+	}
+
+	// TODO: find a good way to format these tooltips
+	.engine-tooltip {
+		display: none !important;
+	}
+
+	#tab_engine .label {
+		display: inline-block;
+		width: 24px;
+		font-size: 1px !important;
+		padding: 0;
+		background-color: transparent !important;
+		color: transparent !important;
+		position: relative;
+
+		&::before {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+		}
+		&.label-success::before {
+			@include mdi('check-circle', 24px, $primary);
+		}
+		&.label-danger::before {
+			@include mdi('close', 24px, $on-surface-variant);
+		}
+	}
 }

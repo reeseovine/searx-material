@@ -1,17 +1,21 @@
 @import "variables-dark";
 @import "variables";
 
+// Material components
 @import "typography";
 @import "mdi";
 @import "buttons";
 @import "chips";
 @import "cards";
+@import "dialogs";
+@import "input";
+@import "tabs";
 
+// Searx components
 @import "global";
 @import "navbar";
 @import "footer";
 @import "checkbox";
-@import "onoff";
 @import "results";
 @import "infobox";
 @import "search";

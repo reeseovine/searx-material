@@ -2,11 +2,14 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>buttons!!!!</title>
-	<link rel="stylesheet" href="../css/material-light.css" type="text/css" />
+	<title>component test page</title>
+    <link rel="stylesheet" href="https://searx.seaofvoic.es/static/themes/oscar/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://searx.seaofvoic.es/static/themes/oscar/css/logicodev.min.css" type="text/css">
+	<link rel="stylesheet" href="../css/material-dark.css" type="text/css" />
 </head>
 <body>
 	<table id="buttons-test">
+		<caption>buttons!!!!</caption>
 		<tr>
 			<th></th>
 			<th></th>
@@ -118,6 +121,49 @@
 			</td>
 			<td>
 				<a href="#" class="text pressed"></a>
+			</td>
+		</tr>
+	</table>
+
+	<table id="inputs-test">
+		<caption>inputs!!!!</caption>
+		<tr>
+			<th>Type</th>
+			<th>Element</th>
+		</tr>
+		<tr>
+			<td>
+				Text
+			</td>
+			<td>
+				<label for="text-input">Example</label>
+				<input id="text-test" type="text" placeholder="Put something in me">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Switch
+			</td>
+			<td class="onoff-checkbox">
+				<div class="onoffswitch">
+					<input type="checkbox" id="engine_archive_is__general" name="engine_archive_is__general" checked="checked" class="onoffswitch-checkbox">
+					<label class="onoffswitch-label" for="engine_archive_is__general">
+						<span class="onoffswitch-inner"></span>
+						<span class="onoffswitch-switch"></span>
+					</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Dropdown
+			</td>
+			<td>
+				<select class="form-control custom-select" name="oscar-style" id="oscar_style">
+                    <option value="logicodev">Logicodev</option>
+                    <option value="pointhi">Pointhi</option>
+                    <option value="logicodev-dark">Logicodev dark</option>
+                </select>
 			</td>
 		</tr>
 	</table>

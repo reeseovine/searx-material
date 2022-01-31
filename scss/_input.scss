@@ -1,0 +1,92 @@
+// On/Off switch checkbox thingy
+.onoff-checkbox {
+	width: auto;
+}
+.onoffswitch {
+	width: 34px;
+	height: 14px;
+	user-select: none;
+}
+.onoffswitch-checkbox {
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+}
+.onoffswitch-checkbox:before {
+	display: none;
+}
+.onoffswitch-label {
+	display: block;
+	position: relative;
+	overflow: visible;
+	cursor: pointer;
+	border: none !important;
+	border-radius: 0 !important;
+}
+
+.onoffswitch-inner {
+	display: block;
+	transition: none;
+
+	width: 34px;
+	height: 14px;
+	border-radius: 7px !important;
+	background-color: $surface-variant;
+	transition: all 0.25s;
+
+	&::before, &::after {
+		display: none;
+	}
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+	background-color: mix($primary, $surface, 38%);
+}
+
+.onoffswitch-switch {
+	display: block;
+	width: 20px;
+	height: 20px;
+	background-color: mix($on-surface, $surface, 12%);
+	position: absolute;
+	top: -3px;
+	left: -3px;
+	border: none;
+	border-radius: 10px !important;
+	transition: all 0.25s;
+	@include elevation1;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+	left: calc(100% - 20px + 3px);
+	background-color: $primary;
+}
+.onoffswitch-checkbox:focus + .onoffswitch-label .onoffswitch-switch {
+	border: none;
+}
+
+
+// Text input (outlined)
+input[type='text'],
+input[type='url'],
+input[type='email'],
+input:not([type]) {
+	height: 52px;
+	color: $on-surface;
+	background-color: transparent !important;
+	border: 1px solid $outline;
+	border-radius: 4px !important;
+	box-shadow: none !important;
+	outline: none !important;
+	padding: 16px;
+	transition: all ease 0.1s;
+	@include body-medium;
+
+	&:focus {
+		border-color: $primary;
+		border-width: 2px;
+		padding: 15px;
+	}
+
+	&[readonly], &::placeholder {
+		color: $outline;
+	}
+}
