@@ -13,7 +13,14 @@ body {
 	background-color: $surface;
 	color: $on-surface;
 	font-family: "Roboto", "Noto Sans", sans-serif;
-	@include body-medium;
+	// Mobile
+	@media (max-width: 767px) {
+		@include body-medium;
+	}
+	// Desktop
+	@media (min-width: 768px) {
+		@include body-large;
+	}
 
 	display: flex;
 	flex-direction: column;
@@ -64,7 +71,7 @@ table {
 	border-collapse: separate;
 	border-spacing: 0;
 	border: 1px solid $surface-variant !important;
-	border-radius: 24px;
+	border-radius: 24px !important;
 
 	tr:first-child th, tr:first-child td { border-top: none !important; }
 	td:first-child, th:first-child { border-left: none !important; }

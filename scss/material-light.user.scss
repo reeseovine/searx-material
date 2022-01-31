@@ -1,0 +1,12 @@
+/* ==UserStyle==
+@name           Searx Material (Light)
+@namespace      github.com/katacarbix/searx-material
+@version        1.0.0
+@description    Light Material Design 3 theme for Searx
+@author         katacarbix
+@license        CC0-1.0
+==/UserStyle== */
+
+@-moz-document url-prefix('') {
+	@import "material-light.scss";
+}

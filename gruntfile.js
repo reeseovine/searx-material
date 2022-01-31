@@ -11,7 +11,9 @@ module.exports = function(grunt){
 			},
 			dist: {
 				files: {
+					'css/material-light.user.css': 'scss/material-light.user.scss',
 					'css/material-light.css': 'scss/material-light.scss',
+					'css/material-dark.user.css': 'scss/material-dark.user.scss',
 					'css/material-dark.css': 'scss/material-dark.scss'
 				}
 			}

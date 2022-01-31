@@ -66,6 +66,7 @@
 	}
 }
 
+
 // Search results
 .result_header {
 	margin: 0;
@@ -84,12 +85,13 @@
 
 .result-content, .result-format, .result-source {
 	@include body-medium;
+	color: $on-surface-variant;
 	margin: 0 0 2px;
 }
 
 .result .highlight {
-	background-color: $surface1;
-	border-radius: 4px;
+	background-color: $surface1 !important;
+	border-radius: 4px !important;
 	font-weight: bold;
 }
 
@@ -165,7 +167,7 @@
 		border: none !important;
 
 		.img-thumbnail {
-			border-radius: 12px;
+			border-radius: 12px !important;
 			border: none !important;
 			padding: 0;
 		}
@@ -314,8 +316,15 @@
 
 // page forward, backward
 #pagination {
-	margin-top: 30px;
-	padding-bottom: 60px;
+	margin-top: 24px;
+	padding-bottom: 72px;
+
+	.btn:not([disabled]) {
+		@include button('text');
+	}
+	.btn[disabled] {
+		@include button('text', $disabled: true);
+	}
 }
 
 .result .text-muted small {

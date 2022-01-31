@@ -3,7 +3,6 @@
 	border-radius: 12px !important;
 	padding: 0;
 	margin-bottom: 24px;
-	@include body-medium;
 
 	// Card styles
 	@if $type == 'elevated' {
@@ -31,10 +30,12 @@
 
 @mixin card-body {
 	padding: 16px;
+	@include body-medium;
 }
 
 @mixin card-footer {
 	padding: 16px;
+	@include body-medium;
 }
 
 @mixin card-image {

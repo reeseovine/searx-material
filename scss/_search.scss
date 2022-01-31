@@ -65,6 +65,10 @@
 			background-color: none;
 			border: none;
 			@include mdi('close', 24px, $outline);
+
+			&:hover {
+				@include mdi('close', 24px, $secondary);
+			}
 		}
 	}
 }
