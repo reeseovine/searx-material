@@ -145,11 +145,13 @@
 }
 
 .result {
+	padding: 0 !important;
+	background-color: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+
 	.pull-right {
 		@include body-small;
-		background-color: transparent !important;
-		border: none !important;
-		box-shadow: none !important;
 
 		// sources
 		.label {

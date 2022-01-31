@@ -1145,14 +1145,17 @@ input[type=checkbox]:not(:checked) + .label_hide_if_not_checked, input[type=chec
   padding-right: 16px;
 }
 
+.result {
+  padding: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
 .result .pull-right {
   font-size: 12px !important;
   font-weight: 400 !important;
   line-height: 16px !important;
   letter-spacing: 0.4px !important;
-  background-color: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
 }
 .result .pull-right .label {
   font-size: 12px !important;
