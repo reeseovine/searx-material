@@ -46,8 +46,33 @@
 
 	// "Links" card
 	&.panel-default.hidden-xs .panel-body {
+		// "Search URL" text box
 		.form-group {
+			position: relative;
+			height: 52px;
+			margin: 4px 0 24px;
 
+			label {
+				position: absolute;
+				top: -8px; left: 16px - 4px;
+				z-index: 20;
+				padding: 0 4px;
+				margin: 0;
+				background-color: $surface1 !important;
+				color: $outline !important;
+				transition: color 0.1s;
+				@include label-small;
+			}
+			&:focus-within label {
+				color: $primary !important;
+			}
+
+			input {
+				position: absolute;
+				top: 0; left: 0;
+				z-index: 10;
+				height: 52px;
+			}
 		}
 
 		label {
@@ -316,14 +341,20 @@
 
 // page forward, backward
 #pagination {
-	margin-top: 24px;
-	padding-bottom: 72px;
+	margin: 24px 0 72px;
+	padding: 0;
 
 	.btn:not([disabled]) {
 		@include button('text');
 	}
 	.btn[disabled] {
 		@include button('text', $disabled: true);
+	}
+
+	&::after {
+		display: block;
+		content: ' ';
+		clear: both;
 	}
 }
 
