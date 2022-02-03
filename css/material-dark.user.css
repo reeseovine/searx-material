@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Searx Material (Dark)
 @namespace      github.com/katacarbix/searx-material
-@version        1.0.2
+@version        1.0.3
 @description    Dark Material Design 3 theme for Searx
 @author         katacarbix
 @license        CC0-1.0
@@ -729,6 +729,8 @@ input:not([type])::placeholder {
 
   html, body {
     min-height: 100vh;
+    width: 100vw;
+    max-width: 100vw;
     margin: 0;
     padding: 0;
   }
@@ -769,6 +771,9 @@ input:not([type])::placeholder {
   body hr {
     height: 0;
     border-top: 1px solid #89938e;
+  }
+  body .container {
+    max-width: 100%;
   }
 
   .text-muted {

@@ -720,6 +720,8 @@ input:not([type])::placeholder {
 
 html, body {
   min-height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
   margin: 0;
   padding: 0;
 }
@@ -760,6 +762,9 @@ body a:hover {
 body hr {
   height: 0;
   border-top: 1px solid #6f7974;
+}
+body .container {
+  max-width: 100%;
 }
 
 .text-muted {
