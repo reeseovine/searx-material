@@ -3,6 +3,9 @@
 	flex-flow: row nowrap;
 	justify-content: stretch;
 	align-items: stretch;
+	max-width: 100%;
+	overflow-x: auto;
+	overflow-y: hidden;
 
 	li {
 		flex: 1 0 auto;
@@ -25,6 +28,7 @@
 			border-top: none !important;
 			border-right: none !important;
 			border-bottom: 2px solid transparent !important;
+			border-radius: 0 !important;
 			transition: all 0.25s;
 			text-transform: capitalize;
 

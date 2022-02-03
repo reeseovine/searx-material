@@ -142,6 +142,8 @@
 	@include body-small;
 	color: $secondary;
 	padding-right: 16px;
+	max-width: 100%;
+	word-wrap: break-word;
 }
 
 .result {
