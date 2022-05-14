@@ -1,0 +1,12 @@
+{% extends "material/base.html" %}
+{% from 'material/icons.html' import icon %}
+{% block meta %}
+	<link rel="preload" href="{{ url_for('static', filename='img/searxng.png') }}" as="image" />
+{% endblock %}
+{% block content %}
+<nav id="linkto_preferences"><a href="{{ url_for('preferences') }}">{{ icon('cog') }}</a></nav>
+<div class="index">
+    <div class="title"><h1>SearXNG</h1></div>
+    {% include 'material/simple_search.html' %}
+</div>
+{% endblock %}

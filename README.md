@@ -1,58 +1,22 @@
-# Searx Material 3 theme
+# SearXNG Material 3 theme
 
-A theme for [Searx](https://searx.me) which follows Google's Material Design 3 guidelines and uses a color palette generated from Searx's logo.
+This branch is a work-in-progress port to a native theme for SearXNG.
 
-This theme is purely CSS which means I had to use a few "hacks" to get some things to work, and other things I would've liked are just not possible. However, being purely CSS means that you can use this theme with a CSS injector browser extension such as Stylus.
+You can find the userstyle version on the `main` branch.
 
-## What does it look like?
+## Developing
 
-### Dark version
+This theme is still in development. To get it working with SearXNG, follow these steps:
 
-[![Install with Stylus](https://img.shields.io/badge/Install%20with-Stylus-00adad.svg)](https://raw.githubusercontent.com/katacarbix/searx-material/main/css/material-dark.user.css)
-<table>
-  <tr>
-    <td><img alt="preview of home page" src="preview/dark_home_simple.png"></td>
-    <td><img alt="preview of home page with advanced settings expanded" src="preview/dark_home_advanced.png"></td>
-  </tr>
-  <tr>
-    <td><img alt="preview of results page" src="preview/dark_results.png"></td>
-    <td><img alt="preview of preferences page" src="preview/dark_preferences.png"></td>
-  </tr>
-</table>
-
-### Light version
-
-[![Install with Stylus](https://img.shields.io/badge/Install%20with-Stylus-00adad.svg)](https://raw.githubusercontent.com/katacarbix/searx-material/main/css/material-light.user.css)
-<table>
-  <tr>
-    <td><img alt="preview of home page" src="preview/light_home_simple.png"></td>
-    <td><img alt="preview of home page with advanced settings expanded" src="preview/light_home_advanced.png"></td>
-  </tr>
-  <tr>
-    <td><img alt="preview of results page" src="preview/light_results.png"></td>
-    <td><img alt="preview of preferences page" src="preview/light_preferences.png"></td>
-  </tr>
-</table>
-
-## How do I use it?
-
-1. Set the theme of your chosen Searx instance to **Oscar** and the style to **Logicodev** (*not* Logicodev dark).  
-    This step is necessary because this theme assumes certain styles are already there. It may not look right with a different theme applied.  
-    If you want to find an instance, go to [searx.space](https://searx.space/).
-2. Install [**Stylus**](https://github.com/openstyles/stylus#stylus).
-3. Click one of the **Install with Stylus** buttons above depending on which theme you want. You could install both but they might conflict with each other and look weird.
-4. When the Stylus tab opens, click **Install style** on the left sidebar.
-5. Enter the URL of your preferred Searx instance in the text box next to **Applies to URLs on the domain**.
-6. Click **Save**, then you should be good to go!
-
-## Thoughts
-
-Early on in making this theme I was debating whether to make it a user style or a theme that can be installed by instance maintainers. Though more prone to breakage, I decided on making it a user style so that it would be accessible to more users. If there is enough interest I may eventually convert it to an installable theme, but for now this is the current format.
-
-## On the horizon
-
-Here are some things I want to improve:
-
-- SearxNG testing and support
-- Browser testing (I've currently only used Firefox to develop and view this theme)
-- Accessibility/RTL testing
+1. Clone this repository somewhere on your computer.
+2. Clone [`searxng`](https://github.com/searxng/searxng) somewhere else on your computer.
+3. Symbolically link (or copy) `templates/material` from this repo to `searx/templates/material` in the `searxng` repo:  
+  ```sh
+ln -sf $PWD/templates/material/ /home/reese/git/github.com/searxng/searxng/searx/templates/material
+  ```
+3. Symbolically link `themes/material` from this repo to `searx/static/themes/material` in the `searxng` repo:  
+  ```sh
+ln -sf $PWD/themes/material/ /path/to/searxng/searx/static/themes/material
+  ```
+4. Symlink the files `Makefile` and `manage` from this repo into the root of the `searxng` repo.
+5. Follow their [Development Quickstart](https://docs.searxng.org/dev/quickstart.html) guide for the rest of the steps.

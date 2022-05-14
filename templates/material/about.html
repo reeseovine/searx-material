@@ -1,0 +1,5 @@
+{% extends 'material/page_with_header.html' %}
+{% block content %}
+{{ help.about | safe }}
+{% include "__common__/aboutextend.html" ignore missing %}
+{% endblock %}

@@ -1,3 +1,2 @@
-node_modules
-logicodev
-test_pages
+**/node_modules
+themes/material/css

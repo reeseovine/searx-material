@@ -1,0 +1,125 @@
+// Valid types: elevated, filled, tonal, outlined, and text
+// @mixin button($type: 'filled', $icon: false, $text: false, $disabled: false){
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+	border-radius: 20px !important;
+	padding: 0 24px;
+	transition: background-color ease .1s, box-shadow ease .1s;
+	overflow: hidden;
+
+	cursor: pointer;
+	&.disabled {
+		cursor: not-allowed;
+	}
+
+	// Text
+	white-space: nowrap;
+	text-decoration: none;
+	@include label-large;
+
+	// Button styles and states
+	// filled
+	border: none;
+	background-color: $primary !important;
+	color: $on-primary;
+	&:hover {
+		@include themed-mix(background-color, 'on-surface', 'primary', 8%);
+		@include elevation1;
+	}
+	&:active {
+		@include themed-mix(background-color, 'on-surface', 'primary', 12%);
+		box-shadow: none !important;
+	}
+	&.disabled {
+		@include themed-rgba(background-color, 'on-surface', 12%);
+		color: rgba($on-surface, 38%);
+	}
+
+	&.elevated {
+		border: none;
+		background-color: $surface !important;
+		color: $primary;
+		@include elevation1;
+		&:hover {
+			@include themed-mix(background-color, 'primary', 'surface', 8%);
+			@include elevation2;
+		}
+		&:active {
+			@include themed-mix(background-color, 'primary', 'surface', 12%);
+		}
+		&.disabled {
+			@include themed-rgba(background-color, 'on-surface', 12%);
+			color: rgba($on-surface, 38%);
+		}
+	}
+
+	&.tonal {
+		border: none;
+		background-color: $secondary-container !important;
+		color: $on-secondary-container;
+		&:hover {
+			@include themed-mix(background-color, 'on-secondary-container', 'secondary-container', 8%);
+			@include elevation1;
+		}
+		&:active {
+			@include themed-mix(background-color, 'on-secondary-container', 'secondary-container', 12%);
+			box-shadow: none !important;
+		}
+		&.disabled {
+			@include themed-rgba(background-color, 'on-surface', 12%);
+			color: rgba($on-surface, 38%);
+		}
+	}
+
+	&.outlined {
+		background-color: transparent !important;
+		border: 1px solid $outline;
+		color: $primary;
+		box-shadow: none;
+		&:hover {
+			@include themed-rgba(background-color, 'primary', 8%);
+		}
+		&:active {
+			@include themed-rgba(background-color, 'primary', 12%);
+		}
+		&.disabled {
+			border-color: rgba($on-surface, 12%);
+			color: rgba($on-surface, 38%);
+		}
+	}
+
+	&.text {
+		background-color: transparent !important;
+		border: none;
+		color: $primary;
+		box-shadow: none;
+		&:hover {
+			@include themed-rgba(background-color, 'primary', 8%);
+		}
+		&:active {
+			@include themed-rgba(background-color, 'primary', 12%);
+		}
+		&.disabled {
+			color: rgba($on-surface, 38%);
+		}
+	}
+
+
+	// Icon
+	// &.has-icon {
+	// 	padding-left: 16px;
+	// 	@if not $text {
+	// 		padding-right: 16px;
+	// 	}
+
+		.mdi {
+			&:not(:last-child) {
+				margin-right: 8px;
+			}
+			flex-shrink: 0;
+		}
+	// }
+}
