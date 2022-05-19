@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+
 // Mixins
 @mixin display1() {
 	font-size: 64px;
@@ -139,7 +141,19 @@
 
 
 
-// Now apply them to a few elements
+// Now apply them to some elements
+body {
+	font-family: "Roboto", "Noto Sans", sans-serif;
+	// Mobile
+	@media (max-width: 767px) {
+		@include body-medium;
+	}
+	// Desktop
+	@media (min-width: 768px) {
+		@include body-large;
+	}
+}
+
 h1 { @include headline1; }
 h2 { @include headline2; }
 h3 { @include headline3; }

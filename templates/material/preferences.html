@@ -205,7 +205,7 @@
       <legend>{{ _('Theme style') }}</legend>
       <p class="value">
         <select name="material_style">
-          {%- for name in ['auto', 'light', 'dark'] -%}
+          {%- for name in ['auto'] -%}
           <option value="{{ name }}" {% if name == preferences.get_value('material_style') %}selected="selected"{% endif %}>{{ _(name) }}</option>
           {%- endfor -%}
         </select>

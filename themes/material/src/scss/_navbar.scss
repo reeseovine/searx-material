@@ -7,15 +7,16 @@ nav#linkto_preferences {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	background: var(--surface);
 
 	a {
 		line-height: 0;
+		@include themed() {
+			color: t('on-surface-variant');
+		}
 	}
 
 	.mdi {
 		width: 32px;
 		height: 32px;
-		fill: var(--on-surface-variant);
 	}
 }

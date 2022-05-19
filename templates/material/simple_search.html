@@ -2,8 +2,8 @@
   <div id="search_header">
     <div id="search_box">
       <input id="q" autofocus name="q" type="text" placeholder="{{ _('Search for...') }}" tabindex="1" autocomplete="off" spellcheck="false" dir="auto" {% if q %}value="{{ q }}"{% endif %} >
-      <button id="clear_search" type="button" tabindex="-1">{{ icon('close') }}</button>
+      <button id="clear_search" class="btn text icon-only" type="button" tabindex="-1">{{ icon('close') }}</button>
     </div>
-  <button id="send_search" type="submit" tabindex="-1">{{ icon('magnify') }}</button>
+  <button id="send_search" class="btn icon-only" type="submit" tabindex="-1">{{ icon('magnify') }}</button>
   </div>
 </form>

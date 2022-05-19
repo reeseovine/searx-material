@@ -12,35 +12,33 @@ html, body {
 }
 
 body {
-	background-color: var(--surface);
-	color: var(--on-surface);
-	font-family: "Roboto", "Noto Sans", sans-serif;
-	// Mobile
-	@media (max-width: 767px) {
-		@include body-medium;
-	}
-	// Desktop
-	@media (min-width: 768px) {
-		@include body-large;
-	}
-
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: stretch;
+	@include themed() {
+		background-color: t('surface');
+		color: t('on-surface');
+	}
+}
 
-	a {
-		color: var(--primary);
-		text-decoration: none !important;
-		transition: color 0.25s;
-		&:hover {
-			color: var(--on-primary-container);
+a {
+	@include themed() {
+		color: t('primary');
+	}
+	text-decoration: none !important;
+	transition: color 0.25s;
+	&:hover {
+		@include themed() {
+			color: t('on-primary-container');
 		}
 	}
 }
 
 .text-muted {
-	color: var(--on-surface-variant);
+	@include themed() {
+		color: t('on-surface-variant');
+	}
 }
 .cursor-text {
     cursor: text !important;
@@ -55,8 +53,10 @@ table {
 	overflow-x: auto;
 	border-collapse: separate;
 	border-spacing: 0;
-	border: 1px solid var(--surface-variant) !important;
 	border-radius: 24px !important;
+	@include themed() {
+		border: 1px solid t('surface-variant')
+	}
 
 	tr:first-child th, tr:first-child td { border-top: none !important; }
 	td:first-child, th:first-child { border-left: none !important; }
@@ -74,21 +74,27 @@ table {
 
 	td, th {
 		padding: 16px 24px !important;
-		border-top: 1px solid var(--surface-variant) !important;
-		border-left: 1px solid var(--surface-variant) !important;
+		@include themed() {
+			border-top: 1px solid t('surface-variant');
+			border-left: 1px solid t('surface-variant');
+		}
 		vertical-align: middle !important;
 	}
 	th {
-		background-color: var(--surface1);
-		color: var(--on-surface-variant);
+		@include themed() {
+			background-color: t('surface1');
+			color: t('on-surface-variant');
+		}
 		@include title-medium;
 	}
 	td {
 		@include body-large;
 
 		&.danger {
-			background-color: var(--error-container) !important;
-			color: var(--on-error-container) !important;
+			@include themed() {
+				background-color: t('error-container');
+				color: t('on-error-container');
+			}
 		}
 	}
 

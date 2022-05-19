@@ -5,4 +5,12 @@
 		margin-top: 20vh;
 		margin-bottom: 20vh;
 	}
+
+	.title {
+		h1 {
+			@include display1();
+			font-weight: 300;
+			margin: 0 0 1rem;
+		}
+	}
 }

@@ -1,83 +1,56 @@
 #search_header {
 	display: flex;
 	justify-content: center;
+	gap: $gap;
 }
 
 #search_box {
-	display: flex;
-}
-
-#q {
-	width: 100%;
-	height: 48px;
-	line-height: 48px;
-	font-size: 18px;
-	padding: 0 24px;
-	border: none;
-	outline: none;
-	border-radius: 24px !important;
-	box-shadow: none;
-	background-color: var(--surface2);
-	color: var(--on-surface);
-
-	&:focus {
-		@include elevation1;
-	}
-
-	&::placeholder {
-		// color: rgba(var(--on-surface), 50%);
-	}
-}
-
-#search_form {
-	.input-group {
-		display: flex;
-		align-items: center;
-		gap: 16px;
-		position: relative;
-
-		.input-group-btn {
-			display: block;
-			width: auto;
-		}
-
-		button[type='submit'] {
-			position: unset;
-			// @include button('filled');
-			width: 48px !important;
-			height: 48px !important;
-			border-radius: 48px !important;
-			padding: 0 !important;
-
-			&::before {
-				flex-shrink: 0;
-				// @include mdi('magnify', 20px, var(--on-primary));
-			}
-		}
-
-		button[type='reset'], #clear_search {
-			position: absolute;
-			top: 50%; right: 16px + 16px + 48px;
-			transform: translateY(-50%);
-			z-index: 999;
-
-			background-color: none;
-			border: none;
-			// @include mdi('close', 24px, var(--outline));
-
-			&:hover {
-				// @include mdi('close', 24px, var(--secondary));
-			}
-		}
-	}
-}
-
-body.results_endpoint #search_form {
-	.row [class^='col-'] {
-		margin-bottom: 16px;
-	}
+	display: grid;
+	grid-template-columns: 1fr auto;
 
 	#q {
-		font-size: 16px;
+		width: 30vw;
+		height: 48px;
+		line-height: 48px;
+		font-size: 18px;
+		padding: 0 24px;
+		border: none;
+		outline: none;
+		border-radius: 24px;
+		box-shadow: none;
+		@include themed() {
+			background-color: t('surface2');
+			color: t('on-surface');
+		}
+
+		grid-column: 1 / -1;
+		grid-row: 1;
+		z-index: 1;
+
+		&:focus {
+			@include elevation1;
+		}
+
+		&::placeholder {
+			@include themed() {
+				color: rgba(t('on-surface'), 50%);
+			}
+		}
 	}
+
+	#clear_search {
+		width: 48px;
+		height: 48px;
+		border-radius: 24px;
+
+		grid-column: 2;
+		grid-row: 1;
+		z-index: 2;
+	}
+}
+
+#send_search {
+	width: 48px;
+	height: 48px;
+	border-radius: 24px;
 }

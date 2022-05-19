@@ -1,125 +1,167 @@
-// Valid types: elevated, filled, tonal, outlined, and text
-// @mixin button($type: 'filled', $icon: false, $text: false, $disabled: false){
-.button {
+.btn {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	height: 40px;
-	border-radius: 20px !important;
+	border-radius: 20px;
 	padding: 0 24px;
 	transition: background-color ease .1s, box-shadow ease .1s;
 	overflow: hidden;
 
 	cursor: pointer;
-	&.disabled {
-		cursor: not-allowed;
-	}
 
 	// Text
 	white-space: nowrap;
 	text-decoration: none;
 	@include label-large;
 
-	// Button styles and states
-	// filled
-	border: none;
-	background-color: $primary !important;
-	color: $on-primary;
-	&:hover {
-		@include themed-mix(background-color, 'on-surface', 'primary', 8%);
-		@include elevation1;
-	}
-	&:active {
-		@include themed-mix(background-color, 'on-surface', 'primary', 12%);
-		box-shadow: none !important;
-	}
+
 	&.disabled {
-		@include themed-rgba(background-color, 'on-surface', 12%);
-		color: rgba($on-surface, 38%);
+		@include themed() {
+			color: rgba(t('on-surface'), 38%) !important;
+		}
+		box-shadow: none !important;
+		cursor: not-allowed;
+	}
+
+	// Button styles and states
+	// Valid types: elevated, filled, tonal, outlined, and text
+
+	// filled
+	&:not(.elevated):not(.tonal):not(.outlined):not(.text) {
+		border: none;
+		@include themed() {
+			background-color: t('primary');
+			color: t('on-primary');
+		}
+		&:hover {
+			@include themed() {
+				background-color: mix(t('on-surface'), t('primary'), 8%);
+			}
+			@include elevation1;
+		}
+		&:active {
+			@include themed() {
+				background-color: mix(t('on-surface'), t('primary'), 12%);
+			}
+			box-shadow: none;
+		}
+		&.disabled {
+			@include themed() {
+				background-color: rgba(t('on-surface'), 12%) !important;
+			}
+		}
 	}
 
 	&.elevated {
 		border: none;
-		background-color: $surface !important;
-		color: $primary;
+		@include themed() {
+			background-color: t('surface');
+			color: t('primary');
+		}
 		@include elevation1;
 		&:hover {
-			@include themed-mix(background-color, 'primary', 'surface', 8%);
+			@include themed() {
+				background-color: mix(t('primary'), t('surface'), 8%);
+			}
 			@include elevation2;
 		}
 		&:active {
-			@include themed-mix(background-color, 'primary', 'surface', 12%);
+			@include themed() {
+				background-color: mix(t('primary'), t('surface'), 12%);
+			}
 		}
 		&.disabled {
-			@include themed-rgba(background-color, 'on-surface', 12%);
-			color: rgba($on-surface, 38%);
+			@include themed() {
+				background-color: rgba(t('on-surface'), 12%) !important;
+			}
 		}
 	}
 
 	&.tonal {
 		border: none;
-		background-color: $secondary-container !important;
-		color: $on-secondary-container;
+		@include themed() {
+			background-color: t('secondary-container');
+			color: t('on-secondary-container');
+		}
 		&:hover {
-			@include themed-mix(background-color, 'on-secondary-container', 'secondary-container', 8%);
+			@include themed() {
+				background-color: mix(t('on-secondary-container'), t('secondary-container'), 8%);
+			}
 			@include elevation1;
 		}
 		&:active {
-			@include themed-mix(background-color, 'on-secondary-container', 'secondary-container', 12%);
-			box-shadow: none !important;
+			@include themed() {
+				background-color: mix(t('on-secondary-container'), t('secondary-container'), 12%);
+			}
+			box-shadow: none;
 		}
 		&.disabled {
-			@include themed-rgba(background-color, 'on-surface', 12%);
-			color: rgba($on-surface, 38%);
+			@include themed() {
+				background-color: rgba(t('on-surface'), 12%) !important;
+			}
 		}
 	}
 
 	&.outlined {
-		background-color: transparent !important;
-		border: 1px solid $outline;
-		color: $primary;
+		background-color: transparent;
+		border: 1px solid;
+		@include themed() {
+			border-color: t('outline');
+			color: t('primary');
+		}
 		box-shadow: none;
 		&:hover {
-			@include themed-rgba(background-color, 'primary', 8%);
+			@include themed() {
+				background-color: rgba(t('primary'), 8%);
+			}
 		}
 		&:active {
-			@include themed-rgba(background-color, 'primary', 12%);
+			@include themed() {
+				background-color: rgba(t('primary'), 12%);
+			}
 		}
 		&.disabled {
-			border-color: rgba($on-surface, 12%);
-			color: rgba($on-surface, 38%);
+			background-color: transparent !important;
+			@include themed() {
+				border-color: rgba(t('on-surface'), 12%) !important;
+			}
 		}
 	}
 
 	&.text {
-		background-color: transparent !important;
+		background-color: transparent;
 		border: none;
-		color: $primary;
+		@include themed() {
+			color: t('primary');
+		}
 		box-shadow: none;
 		&:hover {
-			@include themed-rgba(background-color, 'primary', 8%);
+			@include themed() {
+				background-color: rgba(t('primary'), 8%);
+			}
 		}
 		&:active {
-			@include themed-rgba(background-color, 'primary', 12%);
+			@include themed() {
+				background-color: rgba(t('primary'), 12%);
+			}
 		}
 		&.disabled {
-			color: rgba($on-surface, 38%);
+			background-color: transparent !important;
 		}
 	}
 
 
 	// Icon
-	// &.has-icon {
-	// 	padding-left: 16px;
-	// 	@if not $text {
-	// 		padding-right: 16px;
-	// 	}
+	&.icon-only {
+		padding-left: 16px;
+		padding-right: 16px;
+	}
 
-		.mdi {
-			&:not(:last-child) {
-				margin-right: 8px;
-			}
-			flex-shrink: 0;
+	.mdi {
+		&:not(:last-child) {
+			margin-right: 8px;
 		}
-	// }
+		flex-shrink: 0;
+	}
 }
