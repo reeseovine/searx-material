@@ -144,17 +144,18 @@ $themes: (
 // Extra surface colors
 $surface-ratios: 5%, 8%, 11%, 12%, 14%;
 @each $theme, $map in $themes {
+	$surfaces: () !global;
 	@for $i from 1 through 5 {
-		$themes: map.set($themes, $theme,
-			map.set($map, "surface#{$i}",
-				mix(
-					map.get($map, "primary"),
-					map.get($map, "surface"),
-					nth($surface-ratios, $i)
-				)
+		$surfaces: map.set($surfaces, "surface#{$i}",
+			mix(
+				map.get($map, "primary"),
+				map.get($map, "surface"),
+				nth($surface-ratios, $i)
 			)
 		) !global;
 	}
+	$map: map.merge($map, $surfaces);
+	$themes: map.set($themes, $theme, $map) !global;
 }
 
 
